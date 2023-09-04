@@ -2,7 +2,9 @@ from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Menu, Booking
 from .serializers import MenuSerializer, BookingSerializer
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 
 
 # Create your views here.
@@ -27,8 +29,9 @@ class SingleMenuItemView(RetrieveUpdateDestroyAPIView):
     # You can override any other methods or attributes as needed for handling GET, PUT, and DELETE requests.
 
 class BookingViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()  # Fetch all objects from the Booking model
     serializer_class = BookingSerializer  # Set the serializer class to BookingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
 
     # standard CRUD (Create, Retrieve, Update, Delete) operations 
