@@ -1,4 +1,6 @@
-# LittleLemon (META Back-End Developer Capstone Project)
+# LittleLemon 
+
+(META Back-End Developer Capstone Project)
 
 Navigate to the folder containing the virtual environment  `script\activate`
 
